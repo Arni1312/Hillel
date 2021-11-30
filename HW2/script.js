@@ -95,8 +95,10 @@ if (str.indexOf(skill, 0) !== -1) {
 4) В середине текста находятся сразу два "черт" подряд
 5) "Черт" единственное слово в строке
 */
-// let text = promt(`Введите сюда свой текст`);
-
-// function swears() {
-//   if
-// }
+let text = prompt("Введите сюда свой текст");
+function swears(text) {
+  console.log(
+    text.replace(/(^|[^а-яёА-ЯЁ])(черт)([^а-яёА-ЯЁ]|$)/gi, ` ##### `)
+  );
+}
+swears(text);
