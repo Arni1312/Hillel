@@ -85,25 +85,21 @@ let users = [
     salary: 0,
   },
 ];
-
 let midSalary = 0;
 for (let i = 0; i < users.length; i++) {
   if (users[i].age > 18) {
     midSalary += users[i].salary / users.length;
+    users[i].willDrink = true;
   } else {
+    users[i].willDrink = false;
     console.log(`Имя пользователя ${users[i].name}, возраст ${users[i].age}`);
   }
 }
 console.log("Средняя ЗП :", midSalary);
-
-let adultsUsers = users.filter((item) => item.age > 18);
-
-adultsUsers.forEach((item, index) => {
-  item.willDrink = true;
-  if (index % 2) {
-    item.willDrink = false;
-  }
+let adultsUsers = users.filter((item) => {
+  if (item.age < 18) {
+    console.log(`Удален пользователь ${item.name} ему ${item.age} лет`);
+  } else return item.age > 18;
 });
-
 console.log(users);
 console.log(adultsUsers);
